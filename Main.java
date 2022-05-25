@@ -1,24 +1,44 @@
+
+  
+//import statements
 import java.util.Scanner;  // Import the Scanner class
 
-
 public class Main {
-//import statements
-
-
 //functions go here
-  public static void not_blank() {
-    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+  public static String get_Name(String usersName) {
+    Scanner name = new Scanner(System.in);  // Create a Scanner object
     System.out.println("What is your name?"); // this is how to print something
-    String usersName = myObj.nextLine();  // Read user input
-    System.out.println("Hello " + usersName);
+    usersName = name.nextLine();  // Read user input
+    if (usersName != "") {
+      name.close();
+      System.out.println("Hello " + usersName); }
+      else {
+      System.out.println("Name can not be blank"); 
+      System.out.println("");
+      get_Name(usersName); }
+    
+    return usersName;
   }
-  
-  public static void main(String[] args) {
-    not_blank();
-  }
-  
-//**********Main Routine **********
 
+  public static void ageFinder() {
+    Scanner age = new Scanner(System.in);  // Create a Scanner object
+    System.out.println(); // this is how to print something
+    float usersAge = age.nextLine();  // Read user input
+    if (usersAge <= 12) {
+      age.close();
+      System.out.println("Hello " + usersAge); }
+      else {
+      System.out.println("Name can not be blank"); 
+      System.out.println("");
+      ageFinder(); }
+  }
+
+//**********Main Routine **********
+  public static void main(String[] args) {
+    String usersName = "place holder"; 
+    get_Name(usersName);
+    ageFinder();
+  }
 //set up dictionarius / lists needed to hold data
 
 //Ask user if they have used the program before & show instructions if necessary
