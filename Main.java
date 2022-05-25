@@ -1,10 +1,22 @@
+import java.util.Scanner;  // Import the Scanner class
+
+
 public class Main {
 //import statements
 
 
 //functions go here
-
- 
+  public static void not_blank() {
+    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+    System.out.println("What is your name?"); // this is how to print something
+    String usersName = myObj.nextLine();  // Read user input
+    System.out.println("Hello " + usersName);
+  }
+  
+  public static void main(String[] args) {
+    not_blank();
+  }
+  
 //**********Main Routine **********
 
 //set up dictionarius / lists needed to hold data
@@ -29,6 +41,18 @@ public class Main {
 
 //output data into text file
 
-
-
 }
+
+
+
+/*
+
+class Main {
+  public static void main(String[] args) {
+    Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+    System.out.println("Enter username");
+
+    String userName = myObj.nextLine();  // Read user input
+    System.out.println("Username is: " + userName);  // Output user input
+  }
+}*/
