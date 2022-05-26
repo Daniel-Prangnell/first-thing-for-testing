@@ -3,14 +3,16 @@
 //import statements
 import java.util.Scanner;  // Import the Scanner class
 
+
+
 public class Main {
+  Scanner UserInput = new Scanner(System.in);  // Create a Scanner object
 //functions go here
   public static String get_Name(String usersName) {
-    Scanner name = new Scanner(System.in);  // Create a Scanner object
+
     System.out.println("What is your name?"); // this is how to print something
-    usersName = name.nextLine();  // Read user input
+    usersName = UserInput.nextLine();  // Read user input
     if (usersName != "") {
-      name.close();
       System.out.println("Hello " + usersName); }
       else {
       System.out.println("Name can not be blank"); 
@@ -20,24 +22,24 @@ public class Main {
     return usersName;
   }
 
-  public static void ageFinder() {
-    Scanner age = new Scanner(System.in);  // Create a Scanner object
-    System.out.println(); // this is how to print something
-    float usersAge = age.nextLine();  // Read user input
+  public static int ageFinder(String usersName, int UsersAge) {
+    System.out.println("How old are you? (please enter a whole number)"); // this is how to print something
+    int usersAge = UserInput.nextInt();  // Read user input
     if (usersAge <= 12) {
-      age.close();
-      System.out.println("Hello " + usersAge); }
+      UserInput.close();
+      System.out.println("so you are " + usersAge + " years old"); }
       else {
-      System.out.println("Name can not be blank"); 
-      System.out.println("");
-      ageFinder(); }
+      System.out.println("Please enter an age"); 
+      System.out.println(usersName);
+      ageFinder(usersName,usersAge); }
   }
 
 //**********Main Routine **********
   public static void main(String[] args) {
     String usersName = "place holder"; 
+    int usersAge = 0;
     get_Name(usersName);
-    ageFinder();
+    ageFinder(usersName,usersAge);
   }
 //set up dictionarius / lists needed to hold data
 
@@ -62,8 +64,6 @@ public class Main {
 //output data into text file
 
 }
-
-
 
 /*
 
