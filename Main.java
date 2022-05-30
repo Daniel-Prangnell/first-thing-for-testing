@@ -3,43 +3,47 @@
 //import statements
 import java.util.Scanner;  // Import the Scanner class
 
-
-
 public class Main {
-  Scanner UserInput = new Scanner(System.in);  // Create a Scanner object
 //functions go here
   public static String get_Name(String usersName) {
-
+    Scanner name = new Scanner(System.in);  // Create a Scanner object
     System.out.println("What is your name?"); // this is how to print something
-    usersName = UserInput.nextLine();  // Read user input
-    if (usersName != "") {
-      System.out.println("Hello " + usersName); }
-      else {
+    usersName = name.nextLine();  // Read user input
+    if (usersName.isBlank() == false) {
+      System.out.println("Hello " + usersName); 
+      } 
+    else {
       System.out.println("Name can not be blank"); 
       System.out.println("");
-      get_Name(usersName); }
-    
+      get_Name(usersName); 
+        }
     return usersName;
   }
 
-  public static int ageFinder(String usersName, int UsersAge) {
-    System.out.println("How old are you? (please enter a whole number)"); // this is how to print something
-    int usersAge = UserInput.nextInt();  // Read user input
-    if (usersAge <= 12) {
-      UserInput.close();
-      System.out.println("so you are " + usersAge + " years old"); }
-      else {
-      System.out.println("Please enter an age"); 
-      System.out.println(usersName);
-      ageFinder(usersName,usersAge); }
+  public static void ageFinder() {
+    Scanner age = new Scanner(System.in);  // Create a Scanner object
+    System.out.println("How old are you?"); // this is how to print something
+    int usersAge = age.nextInt();  // Read user input
+    if (usersAge >= 12) {
+      age.close();
+      System.out.println("You are " +usersAge +" year old?");
+      }
+      else if (usersAge < 12) {
+      System.out.println("Sorry you need to be over the age of 12 to go to this movie."); 
+      System.out.println("");
+        }
+      else if (usersAge < 12) {
+      System.out.println("PLease enter a whole number"); 
+      System.out.println("");
+      ageFinder(); 
+        }
   }
 
 //**********Main Routine **********
   public static void main(String[] args) {
     String usersName = "place holder"; 
-    int usersAge = 0;
     get_Name(usersName);
-    ageFinder(usersName,usersAge);
+    ageFinder();
   }
 //set up dictionarius / lists needed to hold data
 
@@ -64,6 +68,8 @@ public class Main {
 //output data into text file
 
 }
+
+
 
 /*
 
