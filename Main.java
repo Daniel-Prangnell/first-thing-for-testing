@@ -5,6 +5,13 @@ import java.util.Scanner;  // Import the Scanner class
 
 public class Main {
 //functions go here
+  private Scanner scanner = new Scanner(System.in);
+
+  public Scanner getScanner() {
+    return scanner;
+  }
+
+  
   public static String get_Name(String usersName) {
     Scanner name = new Scanner(System.in);  // Create a Scanner object
     System.out.println("What is your name?"); // this is how to print something
@@ -26,14 +33,18 @@ public class Main {
     int usersAge = age.nextInt();  // Read user input
     if (usersAge >= 12) {
       age.close();
-      System.out.println("You are " +usersAge +" year old?");
+      System.out.println("So you are " +usersAge +" year old? y/n");
+      Scanner confirm = new Scanner(System.in);
+      boolean ConfirmAge = confirm.nextBoolean();
+      if (ConfirmAge = true)
+        System.out.println("yes");
       }
       else if (usersAge < 12) {
       System.out.println("Sorry you need to be over the age of 12 to go to this movie."); 
       System.out.println("");
         }
-      else if (usersAge < 12) {
-      System.out.println("PLease enter a whole number"); 
+      else {
+      System.out.println("PLease enter a whole number (eg: 1, 2, 3)"); 
       System.out.println("");
       ageFinder(); 
         }
@@ -67,6 +78,9 @@ public class Main {
 
 //output data into text file
 
+
+
+  Scanne
 }
 
 
