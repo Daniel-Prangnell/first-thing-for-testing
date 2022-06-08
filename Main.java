@@ -1,7 +1,6 @@
-
-  
 //import statements
 import java.util.Scanner;  // Import the Scanner class
+import java.util.ArrayList; //importing lists
 
 public class Main {
 //functions go here
@@ -15,14 +14,16 @@ public class Main {
   public String Name(String name) {
     name = "";
     while (name.isBlank() == true) {
-    System.out.println("please enter your name");
-    Scanner ln = getScanner();
-    name = (scanner.nextLine());
+      System.out.println("please enter your name");
+      Scanner ln = getScanner();
+      name = (scanner.nextLine());
       if (name.isBlank() == false) {
         System.out.println("you entered: " + name);
+        } else {
+        System.out.println("ERROR. Please enter a valid name.");
       }
     }
-  return name;
+    return name;
   }
   
   public int Age(int Age) {
@@ -31,13 +32,20 @@ public class Main {
       System.out.println("please enter your age");
       Scanner ln = getScanner();
       Age = (scanner.nextInt());
-      if (Age >= 12) {
-        System.out.println("you entered: " + Age);
-      }
-      else if (Age < 12) {
-        System.out.println("please enter a valid integer");
+      
+    if (Age >= 12 & Age <= 130) {
+      System.out.println("you entered: " + Age);
+      } else if (Age < 12) {
+        System.out.println("Sorry you are not old enough to see this film.");
+        break;
+      } else if (Age > 130) {
+        System.out.println("Sorry you are too old to see this film.");
+        break;
+      } else {
+      System.out.println("ERROR. Please enter a valid integer.");
       }
     }
+    System.out.println();
     return Age;
   }
 
@@ -47,15 +55,49 @@ public class Main {
 //**********Main Routine **********
     public static void main(String[] args) {
       Main m = new Main();
+      int tickets = 5;
       String name = "";
-      m.Name(name);
-      System.out.println(name);
-
-      int Age = 0;
-      m.Age(Age);
+      Boolean ValidName = false;
+      Boolean ValidAge = false;
+      ArrayList<String> AllNames = new ArrayList<String>();
+      ArrayList<Integer> AllAges = new ArrayList<Integer>();
+      
+      while (tickets != 0) {
+        System.out.println("There are " + tickets + " tickets left");
+        name = "";
+        m.Name(name);
+        System.out.println(name);
+  
+        int Age = 0;
+        m.Age(Age);
+          
+        if (Age >= 12) {
+          ValidAge = true;
+          }
+        if (name.isBlank() == false) {
+          ValidName = true;
+        }
+        if (ValidName == true) {
+          System.out.println("valid age works");
+          AllNames.add(name);
+          }
+            
+        if (ValidAge == true) {
+          System.out.println("Valid age works");
+          AllAges.add(Age);
+          }
+        if (ValidAge == true & ValidName == true) {
+          tickets = tickets - 1;
+        }
+        
+        
+      }
+      
+      System.out.println(AllNames);
+      System.out.println(AllAges);
     }
-    
-
+ 
+}
 
   
 //set up dictionarius / lists needed to hold data
@@ -80,7 +122,7 @@ public class Main {
 
 //output data into text file
 
-}
+
 
 
 
