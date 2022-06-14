@@ -16,7 +16,7 @@ public class Main {
     while (name.isBlank() == true) {
       System.out.println("please enter your name");
       Scanner ln = getScanner();
-      name = (scanner.nextLine());
+      name = (scanner.next());
       if (name.isBlank() == false) {
         System.out.println("you entered: " + name);
         } else {
@@ -27,24 +27,25 @@ public class Main {
   }
   
   public int Age(int Age) {
-    Age = 0;
+    Scanner ln = getScanner();
     while (Age < 12) {
-      System.out.println("please enter your age");
-      Scanner ln = getScanner();
-      Age = (scanner.nextInt());
-      
-    if (Age >= 12 & Age <= 130) {
-      System.out.println("you entered: " + Age);
-      } else if (Age < 12) {
-        System.out.println("Sorry you are not old enough to see this film.");
-        break;
-      } else if (Age > 130) {
-        System.out.println("Sorry you are too old to see this film.");
-        break;
-      } else {
-      System.out.println("ERROR. Please enter a valid integer.");
-      }
+      Age = 0;
+      try {
+        System.out.println("please enter your age");
+        Age = scanner.nextInt();
+        if (Age >= 12 & Age <= 130) {
+          System.out.println("you entered: " + Age);
+          } else if (Age < 12) {
+            System.out.println("Sorry you are not old enough to see this film.");
+          } else if (Age > 130) {
+            System.out.println("Sorry you are too old to see this film.");
+          } else {
+          System.out.println("ERROR. Please enter a valid integer (whole number).");
+          }
+      }catch (Exception e) {
+      System.out.println("please enter a valid integer (whole number like 1, 2, 3)");
     }
+  }
     System.out.println();
     return Age;
   }
@@ -53,50 +54,50 @@ public class Main {
 
   
 //**********Main Routine **********
-    public static void main(String[] args) {
-      Main m = new Main();
-      int tickets = 5;
-      String name = "";
-      Boolean ValidName = false;
-      Boolean ValidAge = false;
-      ArrayList<String> AllNames = new ArrayList<String>();
-      ArrayList<Integer> AllAges = new ArrayList<Integer>();
-      
-      while (tickets != 0) {
-        System.out.println("There are " + tickets + " tickets left");
-        name = "";
-        m.Name(name);
-        System.out.println(name);
-  
-        int Age = 0;
-        m.Age(Age);
-          
-        if (Age >= 12) {
-          ValidAge = true;
-          }
-        if (name.isBlank() == false) {
-          ValidName = true;
+  public static void main(String[] args) {
+    Main m = new Main();
+    int tickets = 5;
+    String name = "";
+    Boolean ValidName = false;
+    Boolean ValidAge = false;
+    ArrayList<String> AllNames = new ArrayList<String>();
+    ArrayList<Integer> AllAges = new ArrayList<Integer>();
+    int Age = 0;
+    
+    while (tickets > 0) {
+      System.out.println("There are " + tickets + " tickets left");
+      m.Name(name);
+      System.out.println(name);
+      m.Age(Age);
+      //System.out.println(Age);
+      if (Age >= 12) {
+        ValidAge = true;
         }
-        if (ValidName == true) {
-          System.out.println("valid age works");
-          AllNames.add(name);
-          }
-            
-        if (ValidAge == true) {
-          System.out.println("Valid age works");
-          AllAges.add(Age);
-          }
-        if (ValidAge == true & ValidName == true) {
-          tickets = tickets - 1;
-        }
+      if (name.isBlank() == false) {
+        ValidName = true;
+      }
+      if (ValidName == true) {
+        System.out.println("valid name works");
+        AllNames.add(name);
+      }
+      if (ValidAge == true) {
+        System.out.println("Valid age works");
+        AllAges.add(Age);
+      }
+      if (ValidAge == true & ValidName == true) {
+        tickets = tickets--;
         
-        
+      } else {
+        System.out.println("Error - ticket not sold.");
       }
       
-      System.out.println(AllNames);
-      System.out.println(AllAges);
+      
     }
- 
+    
+    System.out.println(AllNames);
+    System.out.println(AllAges);
+  }
+
 }
 
   
