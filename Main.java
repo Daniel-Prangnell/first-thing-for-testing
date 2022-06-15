@@ -28,22 +28,27 @@ public class Main {
   
   public int Age(int Age) {
     Scanner ln = getScanner();
-    while (Age < 12) {
+    int Age_Answered = 0;
+    while (Age_Answered != 1) {
       Age = 0;
       try {
         System.out.println("please enter your age");
         Age = scanner.nextInt();
         if (Age >= 12 & Age <= 130) {
           System.out.println("you entered: " + Age);
+          Age_Answered = 1;
           } else if (Age < 12) {
             System.out.println("Sorry you are not old enough to see this film.");
+          Age_Answered = 1;
           } else if (Age > 130) {
             System.out.println("Sorry you are too old to see this film.");
+          Age_Answered = 1;
           } else {
           System.out.println("ERROR. Please enter a valid integer (whole number).");
           }
       }catch (Exception e) {
       System.out.println("please enter a valid integer (whole number like 1, 2, 3)");
+      System.out.println("error");
     }
   }
     System.out.println();
@@ -66,9 +71,8 @@ public class Main {
     
     while (tickets > 0) {
       System.out.println("There are " + tickets + " tickets left");
-      m.Name(name);
-      System.out.println(name);
-      m.Age(Age);
+      name = m.Name(name);
+      Age = m.Age(Age);
       //System.out.println(Age);
       if (Age >= 12) {
         ValidAge = true;
@@ -77,18 +81,16 @@ public class Main {
         ValidName = true;
       }
       if (ValidName == true) {
-        System.out.println("valid name works");
         AllNames.add(name);
       }
       if (ValidAge == true) {
-        System.out.println("Valid age works");
         AllAges.add(Age);
       }
-      if (ValidAge == true & ValidName == true) {
-        tickets = tickets--;
+      if (ValidAge == true && ValidName == true) {
+        tickets = tickets-1;
         
       } else {
-        System.out.println("Error - ticket not sold.");
+        System.out.println("***Error - ticket not sold.***");
       }
       
       
