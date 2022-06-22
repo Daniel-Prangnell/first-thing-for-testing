@@ -1,0 +1,20 @@
+Name: poopy
+Age: 69
+Cost: $6.5
+Profit: $1.5
+
+Name: kjhf
+Age: 64
+Cost: $10.5
+Profit: $5.5
+
+Name: a
+Age: 24
+Cost: $10.5
+Profit: $5.5
+
+Name: d
+Age: 12
+Cost: $7.5
+Profit: $2.5
+
